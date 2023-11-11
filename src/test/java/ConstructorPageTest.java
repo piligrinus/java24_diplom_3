@@ -1,82 +1,90 @@
 import io.qameta.allure.Step;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
 import org.junit.Assert;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 import pageobject.ConstructorPage;
 import pageobject.LoginPage;
 import user.User;
 import user.UserGenerator;
 
-import static config.AppConfig.*;
+import static config.AppConfig.APP_URL_CONSTRUCTOR_PAGE;
+import static config.AppConfig.APP_URL_PROFILE_PAGE;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ConstructorPageTest extends BaseTest {
     private final UserGenerator generator = new UserGenerator();
-    User user;
     public String accessToken;
+    User user;
 
-
-   @Test
-   public void FillingActiveTabTest () throws InterruptedException {
-       new ConstructorPage(webDriver)
-                .fillingHeaderClick()
-               .activeTabAssertion("Начинки");
-   }
+    @DisplayName("Тест скролла при нажатии на Соусы")
     @Test
-    public void SourceActiveTabTest () throws InterruptedException {
+    public void asourceActiveTabTest() {
         new ConstructorPage(webDriver)
                 .sourceHeaderClick()
                 .activeTabAssertion("Соусы");
     }
+
+    @DisplayName("Тест скролла при нажатии на Начинки")
     @Test
-    public void BunActiveTabTest () throws InterruptedException {
+    public void bfillingActiveTabTest() {
         new ConstructorPage(webDriver)
                 .fillingHeaderClick()
+                .activeTabAssertion("Начинки");
+    }
+
+    @DisplayName("Тест скролла при нажатии на Булки")
+    @Test
+    public void cbunActiveTabTest() {
+        new ConstructorPage(webDriver)
+                .sourceHeaderClick()
                 .bunHeaderClick()
                 .activeTabAssertion("Булки");
-            }
+    }
 
-    @Step
-    private void checkLoginSuccessfully() throws InterruptedException {
-        Thread.sleep(1000);
-        Assert.assertTrue(webDriver.getTitle() != null && webDriver.getCurrentUrl().contains(APP_URL_LOGIN_PAGE));
+    @Step("Проверка успешного логина")
+    private void checkLoginSuccessfully() {
         new LoginPage(webDriver)
-                .LoginUser(user.getName(), user.getPassword());
-        Thread.sleep(1000);
+                .loginUser(user.getName(), user.getPassword());
         Assert.assertTrue(webDriver.getTitle() != null && webDriver.getCurrentUrl().contains(APP_URL_CONSTRUCTOR_PAGE));
-        deleteUser(accessToken);
+
     }
 
-   @Test
-   public void EnterWithAccountButtonClick() throws InterruptedException {
-       user = generator.genericRandom();
-       ValidatableResponse creationResponse = createUser(user);
-       accessToken = getToken(creationResponse);
-       new ConstructorPage(webDriver)
-               .enterAccountButtonClick();
-                checkLoginSuccessfully();
-   }
-
+    @DisplayName("Тест входа в аккаунт по клику на кнопку Войти в аккаунт")
     @Test
-    public void EnterWithProfileButtonClick() throws InterruptedException {
-       user = generator.genericRandom();
-       ValidatableResponse creationResponse = createUser(user);
-       accessToken = getToken(creationResponse);
-       new ConstructorPage(webDriver)
-               .enterProfileButtonClick();
-                checkLoginSuccessfully();
+    public void denterWithAccountButtonClick() {
+        user = generator.genericRandom();
+        ValidatableResponse creationResponse = createUser(user);
+        accessToken = getToken(creationResponse);
+        new ConstructorPage(webDriver)
+                .enterAccountButtonClick();
+        checkLoginSuccessfully();
     }
+
+    @DisplayName("Тест входа в аккаунт по клику на кнопку Личный кабинет")
     @Test
-    public void goingToProfilePageByProfileButtonClick() throws InterruptedException{
+    public void enterWithProfileButtonClick() {
+        user = generator.genericRandom();
+        ValidatableResponse creationResponse = createUser(user);
+        accessToken = getToken(creationResponse);
+        new ConstructorPage(webDriver)
+                .enterProfileButtonClick();
+        checkLoginSuccessfully();
+    }
+
+    @DisplayName("Тест входа в профиль зарегистрированного пользователя")
+    @Test
+    public void goingToProfilePageByProfileButtonClick() {
         user = generator.genericRandom();
         ValidatableResponse creationResponse = createUser(user);
         accessToken = getToken(creationResponse);
         new LoginPage(webDriver)
-                .LoginUser(user.getEmail(), user.getPassword());
-                Thread.sleep(1000);
+                .loginUser(user.getEmail(), user.getPassword());
         new ConstructorPage(webDriver)
                 .enterProfileButtonClick();
-                 Thread.sleep(300);
-                 Assert.assertTrue(webDriver.getTitle() != null && webDriver.getCurrentUrl().contains(APP_URL_PROFILE_PAGE));
-                 deleteUser(accessToken);
+        Assert.assertTrue(webDriver.getTitle() != null && webDriver.getCurrentUrl().contains(APP_URL_PROFILE_PAGE));
+
     }
 }
