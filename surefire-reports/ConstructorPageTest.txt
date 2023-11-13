@@ -1,0 +1,17 @@
+-------------------------------------------------------------------------------
+Test set: ConstructorPageTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 108.719 s <<< FAILURE! - in ConstructorPageTest
+EnterWithAccountButtonClick(ConstructorPageTest)  Time elapsed: 8.7 s  <<< ERROR!
+org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element <button class="button_button__33qZ0 button_button_type_primary__1O7Bx button_button_size_large__G21Vg">...</button> is not clickable at point (1087, 440). Other element would receive the click: <div class="Modal_modal_overlay__x2ZCr"></div>
+  (Session info: chrome=116.0.5845.933)
+Build info: version: '4.9.1', revision: 'eb2032df7f'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.18'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [2e60085f277d6393596387799ddf3562, clickElement {id=5675027AE27AA9105BA127CE99B890EC_element_32}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.933, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\pilig\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62718}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62718/devtoo..., se:cdpVersion: 116.0.5845.933, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (2e60085f277d6393596387799ddf3562)] -> xpath: .//button[text()='Войти в аккаунт']]
+Session ID: 2e60085f277d6393596387799ddf3562
+	at ConstructorPageTest.EnterWithAccountButtonClick(ConstructorPageTest.java:55)
+

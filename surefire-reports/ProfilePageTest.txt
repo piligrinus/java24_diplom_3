@@ -1,0 +1,43 @@
+-------------------------------------------------------------------------------
+Test set: ProfilePageTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 96.261 s <<< FAILURE! - in ProfilePageTest
+goingToConstructorPageByLogoButtonClick(ProfilePageTest)  Time elapsed: 39.665 s  <<< ERROR!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"css selector","selector":".AppHeader_header__logo__2D0X2"}
+  (Session info: chrome=116.0.5845.933)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.9.1', revision: 'eb2032df7f'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.18'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [2092410e6d96168cebda9f72f6708668, findElement {using=class name, value=AppHeader_header__logo__2D0X2}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.933, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\pilig\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62815}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62815/devtoo..., se:cdpVersion: 116.0.5845.933, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 2092410e6d96168cebda9f72f6708668
+	at ProfilePageTest.goingToConstructorPageByLogoButtonClick(ProfilePageTest.java:48)
+
+goingTLoginPageByExitButtonClick(ProfilePageTest)  Time elapsed: 46.889 s  <<< ERROR!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"css selector","selector":".Account_button__14Yp3"}
+  (Session info: chrome=116.0.5845.933)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.9.1', revision: 'eb2032df7f'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.18'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [91bf2968df10d5e341a666fd7b5468e3, findElement {using=class name, value=Account_button__14Yp3}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.933, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\pilig\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62904}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62904/devtoo..., se:cdpVersion: 116.0.5845.933, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 91bf2968df10d5e341a666fd7b5468e3
+	at ProfilePageTest.goingTLoginPageByExitButtonClick(ProfilePageTest.java:66)
+
+goingToConstructorPageByConstructorButtonClick(ProfilePageTest)  Time elapsed: 9.683 s  <<< ERROR!
+org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element <button class="button_button__33qZ0 button_button_type_primary__1O7Bx button_button_size_medium__3zxIa">...</button> is not clickable at point (936, 548). Other element would receive the click: <div class="Modal_modal_overlay__x2ZCr"></div>
+  (Session info: chrome=116.0.5845.933)
+Build info: version: '4.9.1', revision: 'eb2032df7f'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.18'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [9ec8742b9c2a7fbc704a0f5e382c77f6, clickElement {id=2963C8265713CD8D2C66499DDE471D01_element_29}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.933, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\pilig\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63000}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63000/devtoo..., se:cdpVersion: 116.0.5845.933, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (9ec8742b9c2a7fbc704a0f5e382c77f6)] -> xpath: .//form/button]
+Session ID: 9ec8742b9c2a7fbc704a0f5e382c77f6
+	at ProfilePageTest.goingToConstructorPageByConstructorButtonClick(ProfilePageTest.java:23)
+
